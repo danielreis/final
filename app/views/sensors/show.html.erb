@@ -1,0 +1,29 @@
+<h1>Sensor in <%= @user.first_name %>(<%= @user.id %>)</h1>
+
+<p>
+  <b>Sensor name:</b>
+  <%= @sensor.sensor_name %>
+</p>
+
+<p>
+  <b>Sensor context:</b>
+  <%= @sensor.context %>
+</p>
+
+<p>
+  <b>Queue name:</b>
+  <%= @sensor.queue_name %>
+</p>
+
+<p>
+  <b>Sensor info:</b>
+  <%= @sensor.sensor_info %>
+</p>
+
+<p>
+  <b>User ID:</b>
+  <%= @sensor.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_user_sensor_path(@user, @sensor) %> |
+<%= link_to 'Back', user_sensors_path(@user) %>

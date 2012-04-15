@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sensor_name: MyString
+  context: MyText
+  queue_name: MyString
+  sensor_info: MyString
+  user: 
+
+two:
+  sensor_name: MyString
+  context: MyText
+  queue_name: MyString
+  sensor_info: MyString
+  user: 

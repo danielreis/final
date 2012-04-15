@@ -1,0 +1,37 @@
+
+
+<h1>Sensors in <%= @user.first_name %>(<%= @user.id %>)</h1>
+
+<table>
+  <tr>
+	<th>Sensor id</th>
+    <th>Sensor name</th>
+	<th>Context</th>
+	<th>Queue</th>
+	<th>Sensor Info</th>
+	<th>User ID</th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+  </tr>
+
+<% for sensor in @sensors %>
+  <tr>
+	<td><%= sensor.id %></td>
+    <td><%= sensor.sensor_name %></td>
+	<td><%= sensor.context %></td>
+	<td><%= sensor.queue_name %></td>
+	<td><%= sensor.sensor_info %></td>
+	<td><%= sensor.user_id %></td>
+    <td><%= link_to 'Show', user_sensor_path(@user, sensor) %></td>
+    <td><%= link_to 'Edit', edit_user_sensor_path(@user, sensor) %></td>
+    <td><%= link_to 'Destroy', user_sensor_path(@user, sensor), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New sensor', new_user_sensor_path(@user) %>
+<%= link_to 'Back to User', @user %>
