@@ -1,0 +1,49 @@
+<%= form_for([@user, @sensor]) do |f| %>
+  <% if @sensor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sensor.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @sensor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sensor_name %><br />
+    <%= f.text_field :sensor_name %>
+  </div>
+  <div class="field">
+    <%= f.label :context %><br />
+    <%= f.text_field :context %>
+  </div>
+  <div class="field">
+    <%= f.label :queue_name %><br />
+    <%= f.text_field :queue_name %>
+  </div>
+
+ <div class="field">
+    <%= f.label :sensor_info %><br />
+    <%= f.text_area :sensor_info %>
+  </div>
+
+ <div class="field">
+ 	<select name="sensor[user_id]">
+ 	<% @users.each do |user| %>
+		<% if(@user.id == user.id)%>
+			<option value="<%= user.id %>" selected="selected"> <%= user.first_name %> </option>
+		<% else %>
+		<option value="<%= user.id %>"> <%= user.first_name %> </option>
+ 	<% end %>
+	<% end %>
+ 	</select>
+ </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+

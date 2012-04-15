@@ -1,28 +1,5 @@
 <h1>New sensor</h1>
 
-<% form_for([@user, @sensor]) do |f| %>
-  <%#= f.error_messages %>
-
-  <p>
-    <%= f.label :sensor_name %><br />
-    <%= f.text_field :sensor_name %>
-  </p>
-<p>
-    <%= f.label :context %><br />
-    <%= f.text_field :context %>
-  </p>
-<p>
-    <%= f.label :queue_name %><br />
-    <%= f.text_field :queue_name %>
-  </p>
-<p>
-    <%= f.label :sensor_info %><br />
-    <%= f.text_area :sensor_info %>
-  </p>
-
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'Back', user_sensors_path(@user) %>

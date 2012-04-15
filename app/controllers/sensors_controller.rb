@@ -49,6 +49,7 @@ class SensorsController < ApplicationController
    def new
      @user = User.find(params[:user_id])
      @sensor = @user.sensors.build
+     @users = User.find(:all)
    end
 
    # POST /users/1/items
@@ -72,7 +73,7 @@ class SensorsController < ApplicationController
    # GET /users/1/items/2/edit
    def edit
      @user = User.find(params[:user_id])
-
+     @users = User.find(:all)
      # For URL like /users/1/items/2/edit
      # Get item id=2 for order 1
      @sensor = @user.sensors.find(params[:id])
@@ -86,7 +87,7 @@ class SensorsController < ApplicationController
        publish(@sensor.attributes, "android")
        
        # Save the item successfully
-       redirect_to user_sensor_url(@user, @sensor)
+       redirect_to user_sensors_path
      else
        render :action => "edit"
      end
