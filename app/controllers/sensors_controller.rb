@@ -63,7 +63,7 @@ class SensorsController < ApplicationController
      if @sensor.save
        publish(@sensor.attributes, @sensor.queue_name)
        # Save the item successfully
-       redirect_to user_sensor_url(@user, @sensor)
+       redirect_to user_sensors_path
        
      else
        render :action => "new"
@@ -95,7 +95,7 @@ class SensorsController < ApplicationController
 
    # DELETE /User/1/sensors/2
    def destroy
-     @user = User.find(params[:user_id])
+    
      @sensor = Sensor.find(params[:id])
      @sensor.destroy
 
