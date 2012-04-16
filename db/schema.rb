@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20120414223225) do
     t.string   "sensor_name"
     t.text     "context"
     t.string   "queue_name"
+    t.string   "routing_key"
     t.string   "sensor_info"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20120414223225) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "age"
+    t.string   "exchange_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

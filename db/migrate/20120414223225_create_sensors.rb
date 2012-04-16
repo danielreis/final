@@ -4,6 +4,7 @@ class CreateSensors < ActiveRecord::Migration
       t.string :sensor_name
       t.text :context
       t.string :queue_name
+      t.string :routing_key
       t.string :sensor_info
       t.references :user
 

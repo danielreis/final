@@ -10,6 +10,7 @@
     <th>Sensor name</th>
 	<th>Context</th>
 	<th>Queue</th>
+	<th>Routing Key</th>
 	<th>Sensor Info</th>
 	<th>User ID</th>
 	<th></th>
@@ -23,6 +24,7 @@
     <td><%= sensor.sensor_name %></td>
 	<td><%= sensor.context %></td>
 	<td><%= sensor.queue_name %></td>
+	<td><%= sensor.routing_key %></td>
 	<td><%= sensor.sensor_info %></td>
 	<td><%= sensor.user_id %></td>
     <td><%= link_to 'Show', user_sensor_path(@user, sensor) %></td>
