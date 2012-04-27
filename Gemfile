@@ -7,6 +7,7 @@ gem 'rails', '3.1.3'
 
 gem 'sqlite3'
 gem 'amqp'
+gem 'rapi_doc'
 
 
 # Gems used only for assets and not required

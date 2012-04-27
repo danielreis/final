@@ -1,0 +1,7 @@
+users:
+  location: "/users"
+  controller_name: "users_controller.rb"
+  
+sensors:
+  location: "/users/:id/sensors"
+  controller_name: "sensors_controller.rb"

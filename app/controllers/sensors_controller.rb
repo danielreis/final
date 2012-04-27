@@ -4,6 +4,7 @@ require "amqp"
 class SensorsController < ApplicationController
   
   
+
   def getChannel()
     
     puts "GETCHANNEL() " + $AMQP_CH.to_s
@@ -41,7 +42,11 @@ class SensorsController < ApplicationController
    
      # Access all items for that order
      @sensors = @user.sensors
-     
+   
+      respond_to do |format|
+         format.html # show.html.erb
+         format.json { render json: @sensors }
+       end  
    end
 
    # GET /users/1/sensors/2

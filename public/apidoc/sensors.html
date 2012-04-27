@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>sensors</title>
+
+    <style>
+      body {
+        line-height: 1.5em;
+        color:#484848;
+      }
+
+      ul, ol {
+        margin-bottom: 0.8em;
+      }
+
+      li {
+        padding-left: 10px;
+        margin-right: 10px;
+      }
+
+      #resources {
+
+      }
+
+      h1, h2, h3 {
+        padding-top: 8px;
+        padding-bottom: 2px;
+      }
+
+      #method {
+        padding: 15px 30px;
+        border-top:1px solid #ddd;
+      }
+
+      #http_verb {
+        color:#ff6600;
+        width:200px;
+        margin-right:20px;'
+      }
+
+      .description{
+        font-size: 1.4em;
+        color:#262626;
+      }
+      .code {
+          font-family: monospace;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="content">
+      <div id="navigation">
+        <ul class="main">
+          <li><a href="/apidoc/main.html">&laquo; Back to index</a></li>
+        </ul>
+      </div>
+
+      <hr />
+
+      <h1>Sensor</h1>
+<p class="summary">his resource can be used to show edit and list projects. A project is a one floorplanner. A project
+as multiple floors, which can contain multiple designs. 
+</p>
+
+
+  <h2>Representations</h2>
+
+  
+    <a name="json"></a>
+    <strong>JSON representation:</strong> <br /><a href="javascript:$('#jsonrep').toggle()">(toggle code)</a><br />
+    <textarea style="width:100%;height:200px;display:none;" id="jsonrep"><%=Sensor.find(:first).to_json %></textarea><br />
+  
+
+  
+
+
+
+      
+        <div id="method_2">
+  
+  
+  <p class='description'><strong>Description:</strong>     
+  Get a list of users
+</p>
+
+  <h2><span id='http_verb'>GET</span>/getChannel/</h2>
+  
+  
+    <strong>Access:</strong> FREE<br />
+  
+
+  
+    <strong>Return:</strong>
+    [JSON] - some channel 
+    <br />
+  
+
+    
+    <strong>Parameters:</strong>
+    <ul>
+      
+    </ul>
+  
+
+  
+    <ul class="tabs">
+      
+        <li class="active"><a href='#json_2'>json</a></li>
+      
+    </ul>
+    <div class="pill-content">
+      
+        
+        <div class="active" id='json_2'>
+          <pre class="prettyprint" >    [
+      { &quot;created_at&quot;:&quot;2011-12-05T09:46:11Z&quot;,
+        &quot;description&quot;:&quot;As with the last several books in the series, V Is for Vengeance was a long time in the making.&quot;,
+        &quot;id&quot;:1,
+        &quot;updated_at&quot;:&quot;2011-12-05T09:46:11Z&quot; },
+    ]
+</pre>
+        </div>
+      
+    </div>
+    <br />
+  
+
+  
+
+  
+
+</div>
+
+      
+    </div>
+  </body>
+</html>
