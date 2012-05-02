@@ -25,6 +25,7 @@ gem 'jquery-rails'
 
 # Use unicorn as the web server
 gem 'unicorn'
+gem 'therubyracer'
 
 # Deploy with Capistrano
 # gem 'capistrano'
