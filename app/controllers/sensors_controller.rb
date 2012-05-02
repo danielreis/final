@@ -3,25 +3,35 @@ require "amqp"
 
 class SensorsController < ApplicationController
   
+  
+
+  def getChannel()
+    
+    puts "GETCHANNEL() " + $AMQP_CH.to_s
+  
+  exchange = AMQP::Channel.topic("OLA_LOG")
+  
+   EventMachine.add_timer(1) do
+      # we may publish multiple messages for multiple routing_keys under the same topic
+         exchange.publish(message, :routing_key => rout_key)
+     #    puts "XXXXXXXXXXXXXXXXXXXXXXX"
+    end
+ 
+  
+    
+  end
+  
+  
+  
   # "amqp://127.0.0.1:5672"
   def publish(host, exch_name, rout_key, queue_name, message)
-    EventMachine.run do
+    
+           exchange = $AMQP_CH.topic(exch_name)
+   
+        
        
-       AMQP.connect(host) do |connection|
-         channel  = AMQP::Channel.new(connection)
-         exchange = channel.topic(exch_name)
-         
-         # publish updates 1 second later, after all queues are declared and bound
-        EventMachine.add_timer(1) do
-          # we may publish multiple messages for multiple routing_keys under the same topic
              exchange.publish(message, :routing_key => rout_key)
-        end
 
-        show_stopper = Proc.new { connection.close { EventMachine.stop } }
-        Signal.trap "TERM", show_stopper
-        EM.add_timer(1, show_stopper)
-      end
-    end
   end
 
   # GET /users/1/items
@@ -29,9 +39,14 @@ class SensorsController < ApplicationController
      # For URL like /users/1/sensors
      # Get the user with id=1
      @user = User.find(params[:user_id])
-
+   
      # Access all items for that order
      @sensors = @user.sensors
+   
+      respond_to do |format|
+         format.html # show.html.erb
+         format.json { render json: @sensors }
+       end  
    end
 
    # GET /users/1/sensors/2
@@ -60,7 +75,7 @@ class SensorsController < ApplicationController
      @sensor = @user.sensors.build(params[:sensor])
      if @sensor.save
       
-       publish("amqp://127.0.0.1:5672", @user.exchange_name, @sensor.routing_key, @sensor.queue_name, @sensor.attributes)
+       publish("", @user.exchange_name, @sensor.routing_key, @sensor.queue_name, @sensor.attributes)
        # Save the item successfully
        redirect_to user_sensors_path
        
@@ -83,7 +98,7 @@ class SensorsController < ApplicationController
      @user = User.find(params[:user_id])
      @sensor = Sensor.find(params[:id])
      if @sensor.update_attributes(params[:sensor])
-           publish("amqp://127.0.0.1:5672", @user.exchange_name, @sensor.routing_key, @sensor.queue_name, @sensor.attributes)
+          publish("", @user.exchange_name, @sensor.routing_key, @sensor.queue_name, @sensor.attributes)
        
        # Save the item successfully
        redirect_to user_sensors_path
